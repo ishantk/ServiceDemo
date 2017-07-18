@@ -1,6 +1,7 @@
 package com.auribises.servicedemo;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,7 +17,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ListView listView;
     ArrayAdapter<String> adapter;
 
+    SharedPreferences preferences;
+
     void initList(){
+
+        preferences = getSharedPreferences("music",MODE_PRIVATE);
+
+        String songName = preferences.getString("keySong","Select Song");
+        getSupportActionBar().setTitle(songName);
+
+
         listView = (ListView)findViewById(R.id.listView);
         adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
 

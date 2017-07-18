@@ -31,7 +31,7 @@ public class MyMusicService extends Service {
 
         Toast.makeText(this,"--Service Started-- "+songName,Toast.LENGTH_LONG).show();
 
-        String url = "http://www.auribises.com/sessions/Maroon5Sugar.mp3";
+        //String url = "http://www.auribises.com/sessions/Maroon5Sugar.mp3";
 
         player = new MediaPlayer();
 
@@ -39,9 +39,9 @@ public class MyMusicService extends Service {
 
         try {
 
-            player.setDataSource(this, Uri.parse(url));
+            //player.setDataSource(this, Uri.parse(url));
 
-            //player.setDataSource(path);
+            player.setDataSource(path);
             player.prepare();
             player.start();
 
